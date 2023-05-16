@@ -1,0 +1,107 @@
+{
+    "@@locale": "en",
+    "counterAppBarTitle": "Counter",
+    "@counterAppBarTitle": {
+        "description": "Text shown in the AppBar of the Counter Page"
+    },
+    "login": "Login",
+    "@login": {
+        "description": "Text shown in of the Login text"
+    },
+    "logout": "Logout",
+    "@logout": {
+        "description": "Text shown in of the Logout text"
+    },
+    "email": "Email",
+    "@email": {
+        "description": "Text shown in of the Email text"
+    },
+    "password": "Password",
+    "@password": {
+        "description": "Text shown in of the Password text"
+    },
+    "emailRequired": "Email is required",
+    "@emailRequired": {
+        "description": "Text shown in of the Email Required text"
+    },
+    "passwordRequired": "Password is required",
+    "@passwordRequired": {
+        "description": "Text shown in of the Password Required text"
+    },
+    "emailInvalid": "Email is invalid",
+    "@emailInvalid": {
+        "description": "Text shown in of the Email Invalid text"
+    },
+    "passwordInvalid": "Password is invalid",
+    "@passwordInvalid": {
+        "description": "Text shown in of the Password Invalid text"
+    },
+    "emailOrPasswordInvalid": "Email or Password is invalid",
+    "@emailOrPasswordInvalid": {
+        "description": "Text shown in of the Email or Password Invalid text"
+    },
+    "enterEmail": "Enter your email",
+    "@enterEmail": {
+        "description": "Text shown in of the Enter your email text"
+    },
+    "enterPassword": "Enter your password",
+    "@enterPassword": {
+        "description": "Text shown in of the Enter your password text"
+    },
+    "register": "Register",
+    "@register": {
+        "description": "Text shown in of the Register text"
+    },
+    "continueWith": "Continue with {provider}",
+    "@continueWith": {
+        "description": "Continue with provider shown",
+        "placeholders": {
+            "provider": {
+                "type": "String",
+                "example": "Google"
+            }
+        }
+    },
+    "or": "or",
+    "@or": {
+        "description": "Text shown in of the Or text"
+    },
+
+
+    "invalidCredentials": "Invalid credentials. Please try again.",
+    "@invalidCredentials": {
+        "description": "Text shown in of the firebase exception Invalid credentials text"
+    },
+
+    "invalidEmail": "Email is not valid or badly formatted.",
+    "@invalidEmail": {
+        "description": "Text shown in of the firebase exception on Invalid email text"
+    },
+
+    "userDisabled": "This user has been disabled. Please contact support for help.",
+    "@userDisabled": {
+        "description": "Text shown in of the firebase exception on User disabled text"
+    },
+
+    "weakPassword": "Please enter a stronger password.",
+    "@weakPassword": {
+        "description": "Text shown in of the firebase exception on Weak password text"
+    },
+    "operationNotAllowed": "This operation is not allowed. Please contact support for help.",
+    "@operationNotAllowed": {
+        "description": "Text shown in of the firebase exception on Operation not allowed text"
+    },
+    "googleSignInCancelled": "Google sign in cancelled.",
+    "@googleSignInCancelled": {
+        "description": "Text shown in of the firebase exception on Google sign in cancelled text"
+    },
+    "defaultError": "An error occurred. Please try again.",
+    "@defaultError": {
+        "description": "Text shown in of the firebase exception on Default error text"
+    },
+    "loading": "Loading please wait...",
+    "@loading": {
+        "description": "Text shown in of the Loading please wait... text"
+    }
+
+}
