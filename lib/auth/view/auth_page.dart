@@ -4,11 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:formz/formz.dart';
 import 'package:notes/auth/auth.dart';
-import 'package:notes/auth/components/snackbar_widget.dart';
 import 'package:notes/di/di.dart';
 import 'package:notes/l10n/l10n.dart';
 import 'package:notes/routes/app_router.dart';
-import 'package:notes/theme/cubit/theme_cubit.dart';
 
 @RoutePage()
 class AuthPage extends StatefulWidget {
@@ -22,7 +20,6 @@ class _AuthPageState extends State<AuthPage> {
   TextTheme get _textTheme => Theme.of(context).textTheme;
   ColorScheme get _colorScheme => Theme.of(context).colorScheme;
   AppLocalizations get _l10n => context.l10n;
-  ThemeCubit get _themeCubit => context.read<ThemeCubit>();
 
   late final AuthCubit _authCubit;
 
