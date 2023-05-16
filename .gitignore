@@ -108,7 +108,6 @@ packages/**/pubspec.lock
 lib/generated_plugin_registrant.dart
 
 #firebase options
-lib/firebase_options.dart
 
 # Symbolication related
 app.*.symbols
