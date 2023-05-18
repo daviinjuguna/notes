@@ -9,6 +9,7 @@ import 'package:notes/di/di.dart';
 
 import 'package:notes/firebase_options.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 class AppBlocObserver extends BlocObserver {
   const AppBlocObserver();
@@ -47,6 +48,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
       );
 
       await configureInjection(environment: Env.dev);
+      setPathUrlStrategy();
       runApp(await builder());
     },
     (error, stackTrace) => log(error.toString(), stackTrace: stackTrace),
