@@ -5,8 +5,11 @@ class UniqueId {
     return UniqueId._(const Uuid().v1());
   }
 
-  factory UniqueId.fromUniqueString(String uniqueId) {
-    return UniqueId._(uniqueId);
+  factory UniqueId.fromUniqueString(String? uniqueId) {
+    if(uniqueId!=null) {
+      return UniqueId._(uniqueId);
+    }
+    return UniqueId();
   }
   const UniqueId._(this.value);
   final String value;

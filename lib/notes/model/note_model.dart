@@ -1,6 +1,12 @@
+import 'dart:ui';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:notes/notes/entity/note_item.dart';
+import 'package:notes/notes/note_objects/note_body.dart';
+import 'package:notes/notes/note_objects/note_color.dart';
+import 'package:notes/objects/objects.dart';
 
 import 'package:notes/todo/todo.dart';
 
@@ -78,4 +84,13 @@ class NoteModel {
       timestamp: timestamp ?? this.timestamp,
     );
   }
+}
+
+extension NoteModelX on NoteModel {
+  NoteItem toEntity() => NoteItem(
+        id: UniqueId.fromUniqueString(id),
+        body: NoteBody.dirty(body),
+        color: NoteColor.dirty(Color(color)),
+        todos: todos.map((e) => e.toEntity()).toList(),
+      );
 }
