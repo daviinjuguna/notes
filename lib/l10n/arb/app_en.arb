@@ -102,6 +102,10 @@
     "loading": "Loading please wait...",
     "@loading": {
         "description": "Text shown in of the Loading please wait... text"
+    },
+    "ohSnap": "Oh Snap!",
+    "@ohSnap": {
+        "description": "Text shown in of the Oh Snap! text"
     }
 
 }

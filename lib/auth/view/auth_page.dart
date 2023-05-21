@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:formz/formz.dart';
 import 'package:notes/auth/auth.dart';
+import 'package:notes/components/components.dart';
 import 'package:notes/di/di.dart';
 import 'package:notes/l10n/l10n.dart';
 import 'package:notes/routes/app_router.dart';
@@ -71,39 +72,15 @@ class _AuthPageState extends State<AuthPage> {
             case FormzSubmissionStatus.initial:
               break;
             case FormzSubmissionStatus.inProgress:
-              ScaffoldMessenger.of(context)
-                ..hideCurrentSnackBar()
-                ..showSnackBar(
-                  SnackBar(
-                    content: Row(
-                      children: [
-                        const CircularProgressIndicator(),
-                        const SizedBox(width: 15),
-                        Text(_l10n.loading),
-                      ],
-                    ),
-                  ),
-                );
+              SnackbarWidget.loading(context);
               break;
             case FormzSubmissionStatus.success:
-              ScaffoldMessenger.of(context).hideCurrentSnackBar();
+              SnackbarWidget.hide(context);
               context.router
                   .pushAndPopUntil(const HomeRoute(), predicate: (_) => false);
               break;
             case FormzSubmissionStatus.failure:
-              ScaffoldMessenger.of(context)
-                ..hideCurrentSnackBar()
-                ..showSnackBar(
-                  SnackBar(
-                    backgroundColor: _colorScheme.error,
-                    content: Text(
-                      _errorFromCode(state.errorCode),
-                      style: _textTheme.bodyLarge?.copyWith(
-                        color: _colorScheme.onError,
-                      ),
-                    ),
-                  ),
-                );
+              SnackbarWidget.error(_errorFromCode(state.errorCode), context);
               break;
           }
         },

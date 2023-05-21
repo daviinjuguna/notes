@@ -25,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -39,7 +36,6 @@ class DefaultFirebaseOptions {
           'DefaultFirebaseOptions have not been configured for linux - '
           'you can reconfigure this by running the FlutterFire CLI again.',
         );
-      // ignore: no_default_cases
       default:
         throw UnsupportedError(
           'DefaultFirebaseOptions are not supported for this platform.',
@@ -53,6 +49,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '427343878976',
     projectId: 'notes-64c3c',
     authDomain: 'notes-64c3c.firebaseapp.com',
+    databaseURL: 'https://notes-64c3c-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'notes-64c3c.appspot.com',
     measurementId: 'G-6BF9T92F69',
   );
@@ -62,6 +59,7 @@ class DefaultFirebaseOptions {
     appId: '1:427343878976:android:af9c9964f336e0ec46f8a5',
     messagingSenderId: '427343878976',
     projectId: 'notes-64c3c',
+    databaseURL: 'https://notes-64c3c-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'notes-64c3c.appspot.com',
   );
 
@@ -70,11 +68,22 @@ class DefaultFirebaseOptions {
     appId: '1:427343878976:ios:9cb2301fbc12d32646f8a5',
     messagingSenderId: '427343878976',
     projectId: 'notes-64c3c',
+    databaseURL: 'https://notes-64c3c-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'notes-64c3c.appspot.com',
-    androidClientId:
-        '427343878976-als19b4ch278i2pcrlb5s3pk9ch9i872.apps.googleusercontent.com',
-    iosClientId:
-        '427343878976-2sloc4j2fsnsqmuprnqs2qriuqmko3no.apps.googleusercontent.com',
+    androidClientId: '427343878976-als19b4ch278i2pcrlb5s3pk9ch9i872.apps.googleusercontent.com',
+    iosClientId: '427343878976-2sloc4j2fsnsqmuprnqs2qriuqmko3no.apps.googleusercontent.com',
     iosBundleId: 'com.codesynth.notes',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyCwrAkkiZ-N_x9sJPopS9uAtQuUqxwbWw0',
+    appId: '1:427343878976:ios:2d2899619cdbf18e46f8a5',
+    messagingSenderId: '427343878976',
+    projectId: 'notes-64c3c',
+    databaseURL: 'https://notes-64c3c-default-rtdb.europe-west1.firebasedatabase.app',
+    storageBucket: 'notes-64c3c.appspot.com',
+    androidClientId: '427343878976-als19b4ch278i2pcrlb5s3pk9ch9i872.apps.googleusercontent.com',
+    iosClientId: '427343878976-v2frln6rpsb36ccqh7de42564pniv2pn.apps.googleusercontent.com',
+    iosBundleId: 'com.codesynth.notes.RunnerTests',
   );
 }

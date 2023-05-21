@@ -31,8 +31,9 @@ class NoteRepoImpl implements NoteRepo {
       yield left('unauthenticated-error');
     }
     yield* _firestore
-        .doc('note')
-        .collection(user!.uid)
+        .collection('note')
+        .doc(_auth.currentUser!.uid)
+        .collection('notes')
         .orderBy('timestamp', descending: true)
         .snapshots()
         .map(
@@ -63,8 +64,9 @@ class NoteRepoImpl implements NoteRepo {
     }
 
     yield* _firestore
-        .doc('note')
-        .collection(user!.uid)
+        .collection('note')
+        .doc(_auth.currentUser!.uid)
+        .collection('notes')
         .orderBy('timestamp', descending: true)
         .snapshots()
         .map(
@@ -94,8 +96,9 @@ class NoteRepoImpl implements NoteRepo {
   @override
   Future<Either<String, Unit>> create(NoteItem note) => _crudAction(
         _firestore
-            .doc('note')
-            .collection(_auth.currentUser!.uid)
+            .collection('note')
+            .doc(_auth.currentUser!.uid)
+            .collection('notes')
             .doc(note.id.value)
             .set(NoteModel.fromEntity(note).toJson()),
       );
@@ -103,8 +106,9 @@ class NoteRepoImpl implements NoteRepo {
   @override
   Future<Either<String, Unit>> update(NoteItem note) => _crudAction(
         _firestore
-            .doc('note')
-            .collection(_auth.currentUser!.uid)
+            .collection('note')
+            .doc(_auth.currentUser!.uid)
+            .collection('notes')
             .doc(note.id.value)
             .update(NoteModel.fromEntity(note).toJson()),
       );
@@ -112,8 +116,9 @@ class NoteRepoImpl implements NoteRepo {
   @override
   Future<Either<String, Unit>> delete(NoteItem note) => _crudAction(
         _firestore
-            .doc('note')
-            .collection(_auth.currentUser!.uid)
+            .collection('note')
+            .doc(_auth.currentUser!.uid)
+            .collection('notes')
             .doc(note.id.value)
             .delete(),
       );
