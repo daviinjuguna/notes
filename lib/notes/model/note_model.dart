@@ -23,6 +23,16 @@ class NoteModel {
     required this.timestamp,
   });
 
+  factory NoteModel.fromEntity(NoteItem entity) {
+    return NoteModel(
+      id: entity.id.value,
+      body: entity.body.value,
+      color: entity.color.value?.value ?? const Color(0xfffafafa).value,
+      todos: entity.todos.map(TodoModel.fromEntity).toList(),
+      timestamp: DateTime.now().millisecondsSinceEpoch,
+    );
+  }
+
   @visibleForTesting
   const NoteModel.forTest({
     this.id,

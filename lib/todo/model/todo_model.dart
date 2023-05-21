@@ -22,6 +22,14 @@ class TodoModel {
     this.done = false,
   });
 
+  factory TodoModel.fromEntity(TodoItem entity) {
+    return TodoModel(
+      id: entity.id.value,
+      title: entity.title.value,
+      done: entity.done,
+    );
+  }
+
   factory TodoModel.fromJson(Map<String, dynamic> data) =>
       _$TodoModelFromJson(data);
   Map<String, dynamic> toJson() => _$TodoModelToJson(this);

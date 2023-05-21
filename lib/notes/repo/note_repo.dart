@@ -47,6 +47,8 @@ class NoteRepoImpl implements NoteRepo {
       if (error is PlatformException &&
           (error.message?.contains('PERMISSION_DENIED') ?? false)) {
         return left('permission-error');
+      } else if (error is FirebaseException) {
+        return left(error.code);
       } else {
         return left('default-error');
       }
@@ -81,6 +83,8 @@ class NoteRepoImpl implements NoteRepo {
       if (error is PlatformException &&
           (error.message?.contains('PERMISSION_DENIED') ?? false)) {
         return left('permission-error');
+      } else if (error is FirebaseException) {
+        return left(error.code);
       } else {
         return left('default-error');
       }
@@ -88,22 +92,31 @@ class NoteRepoImpl implements NoteRepo {
   }
 
   @override
-  Future<Either<String, Unit>> create(NoteItem note) async {
-    // TODO: implement update
-    throw UnimplementedError();
-  }
+  Future<Either<String, Unit>> create(NoteItem note) => _crudAction(
+        _firestore
+            .doc('note')
+            .collection(_auth.currentUser!.uid)
+            .doc(note.id.value)
+            .set(NoteModel.fromEntity(note).toJson()),
+      );
 
   @override
-  Future<Either<String, Unit>> update(NoteItem note) async {
-    // TODO: implement update
-    throw UnimplementedError();
-  }
+  Future<Either<String, Unit>> update(NoteItem note) => _crudAction(
+        _firestore
+            .doc('note')
+            .collection(_auth.currentUser!.uid)
+            .doc(note.id.value)
+            .update(NoteModel.fromEntity(note).toJson()),
+      );
 
   @override
-  Future<Either<String, Unit>> delete(NoteItem note) async {
-    // TODO: implement delete
-    throw UnimplementedError();
-  }
+  Future<Either<String, Unit>> delete(NoteItem note) => _crudAction(
+        _firestore
+            .doc('note')
+            .collection(_auth.currentUser!.uid)
+            .doc(note.id.value)
+            .delete(),
+      );
 
   Future<Either<String, Unit>> _crudAction(Future<void> firebaseCall) async {
     try {
@@ -114,10 +127,12 @@ class NoteRepoImpl implements NoteRepo {
       await firebaseCall;
       return right(unit);
     } catch (error, stackTrace) {
-      log('Watch all error', error: error, stackTrace: stackTrace);
+      log('Crud action error', error: error, stackTrace: stackTrace);
       if (error is PlatformException &&
           (error.message?.contains('PERMISSION_DENIED') ?? false)) {
         return left('permission-error');
+      } else if (error is FirebaseException) {
+        return left(error.code);
       } else {
         return left('default-error');
       }
