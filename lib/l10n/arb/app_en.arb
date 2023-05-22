@@ -106,6 +106,15 @@
     "ohSnap": "Oh Snap!",
     "@ohSnap": {
         "description": "Text shown in of the Oh Snap! text"
+    },
+    "areYouSureLogout": "Are you sure you want to logout?",
+    "@areYouSureLogout": {
+        "description": "Text shown in of the Are you sure you want to logout? text"
+    },
+    "cancel": "Cancel",
+    "@cancel": {
+        "description": "Text shown in of the Cancel text"
     }
+
 
 }

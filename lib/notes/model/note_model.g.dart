@@ -9,15 +9,16 @@ part of 'note_model.dart';
 NoteModel _$NoteModelFromJson(Map<String, dynamic> json) => NoteModel(
       body: json['body'] as String,
       color: json['color'] as int,
-      todos: (json['todos'] as List<dynamic>)
-          .map((e) => TodoModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      todos: (json['todos'] as List<dynamic>?)
+              ?.map((e) => TodoModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
       timestamp: json['timestamp'] as int,
     );
 
 Map<String, dynamic> _$NoteModelToJson(NoteModel instance) => <String, dynamic>{
       'body': instance.body,
       'color': instance.color,
-      'todos': instance.todos,
+      'todos': NoteModel._todosToJson(instance.todos),
       'timestamp': instance.timestamp,
     };

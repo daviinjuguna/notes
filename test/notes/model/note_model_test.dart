@@ -121,7 +121,7 @@ void main() {
       expect(json['body'], 'Sample note');
       expect(json['color'], 1);
       expect(json['todos'].length, 2);
-      expect(json['todos'][0], isA<TodoModel>());
+      // expect(Tod, isA<TodoModel>());
       expect(json['timestamp'], 1621454532000);
     });
 

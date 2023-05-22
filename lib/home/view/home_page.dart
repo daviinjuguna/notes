@@ -2,14 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/di/injection.dart';
-import 'package:notes/notes/note_objects/note_body.dart';
-import 'package:notes/notes/note_objects/note_color.dart';
+import 'package:notes/home/component/logout_dialog.dart';
 import 'package:notes/notes/notes.dart';
-import 'package:notes/objects/unique_id/unique_id.dart';
 import 'package:notes/splash/splash.dart';
-import 'package:notes/todo/entity/todo_item.dart';
-import 'package:notes/todo/todo_objects/todo_title.dart';
-import 'package:notes/utils/utils.dart';
 
 @RoutePage()
 class HomePage extends StatefulWidget {
@@ -30,21 +25,6 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     _noteWatcherBloc = getIt<NoteWatcherBloc>()..add(AllNoteWatcherEvent());
     _noteActorCubit = getIt<NoteActorCubit>();
-
-    getIt<NoteRepo>().create(
-      NoteItem(
-        id: UniqueId(),
-        body: const NoteBody.dirty('The first note'),
-        color: NoteColor.dirty(AppColor.noteColors.first),
-        todos: [
-          TodoItem(
-            id: UniqueId(),
-            title: const TodoTitle.dirty('First todo'),
-            done: false,
-          )
-        ],
-      ),
-    );
   }
 
   @override
@@ -83,10 +63,17 @@ class _HomePageState extends State<HomePage> {
             title: const Text('Notes'),
             leading: IconButton(
               icon: const Icon(Icons.logout),
-              onPressed: () {
-                _splashCubit.logout();
+              onPressed: () async {
+                final logout = await showDialog<bool>(
+                  context: context,
+                  builder: (context) => const LogoutDalog(),
+                );
+                if (logout ?? false) {
+                  await _splashCubit.logout();
+                }
               },
             ),
+            actions: [],
           ),
         ),
       ),

@@ -19,7 +19,7 @@ class NoteModel {
     this.id,
     required this.body,
     required this.color,
-    required this.todos,
+    this.todos = const [],
     required this.timestamp,
   });
 
@@ -55,8 +55,16 @@ class NoteModel {
   final String? id;
   final String body;
   final int color;
+  @JsonKey(toJson: _todosToJson)
   final List<TodoModel> todos;
   final int timestamp;
+
+  static dynamic _todosToJson(List<TodoModel> todos) {
+    if (todos.isEmpty) {
+      return null;
+    }
+    return todos.map((e) => e.toJson()).toList();
+  }
 
   @override
   bool operator ==(Object other) {
