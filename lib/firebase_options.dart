@@ -70,7 +70,7 @@ class DefaultFirebaseOptions {
     projectId: 'notes-64c3c',
     databaseURL: 'https://notes-64c3c-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'notes-64c3c.appspot.com',
-    androidClientId: '427343878976-als19b4ch278i2pcrlb5s3pk9ch9i872.apps.googleusercontent.com',
+    androidClientId: '427343878976-5jd40cs8cf6el0pidmq4qvgldbvs11aq.apps.googleusercontent.com',
     iosClientId: '427343878976-2sloc4j2fsnsqmuprnqs2qriuqmko3no.apps.googleusercontent.com',
     iosBundleId: 'com.codesynth.notes',
   );
@@ -82,7 +82,7 @@ class DefaultFirebaseOptions {
     projectId: 'notes-64c3c',
     databaseURL: 'https://notes-64c3c-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'notes-64c3c.appspot.com',
-    androidClientId: '427343878976-als19b4ch278i2pcrlb5s3pk9ch9i872.apps.googleusercontent.com',
+    androidClientId: '427343878976-5jd40cs8cf6el0pidmq4qvgldbvs11aq.apps.googleusercontent.com',
     iosClientId: '427343878976-v2frln6rpsb36ccqh7de42564pniv2pn.apps.googleusercontent.com',
     iosBundleId: 'com.codesynth.notes.RunnerTests',
   );

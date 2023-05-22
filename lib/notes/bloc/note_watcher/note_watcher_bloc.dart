@@ -14,14 +14,14 @@ part 'note_watcher_state.dart';
 class NoteWatcherBloc extends Bloc<NoteWatcherEvent, NoteWatcherState> {
   NoteWatcherBloc(this._noteRepo) : super(const NoteWatcherState()) {
     on<AllNoteWatcherEvent>((event, emit) async {
-      emit(state.copyWith(status: NoteWatcherStatus.loadInProgress));
+      emit(state.copyWith(status: NoteWatcherStatus.loading));
       await _noteStreamSubscription?.cancel();
       _noteStreamSubscription = _noteRepo.watchAll().listen(
             (failureOrNotes) => add(_ReceivedNoteWatcherEvent(failureOrNotes)),
           );
     });
     on<UncompletedNoteWatcherEvent>((event, emit) async {
-      emit(state.copyWith(status: NoteWatcherStatus.loadInProgress));
+      emit(state.copyWith(status: NoteWatcherStatus.loading));
       await _noteStreamSubscription?.cancel();
       _noteStreamSubscription = _noteRepo.watchUncompleted().listen(
             (failureOrNotes) => add(_ReceivedNoteWatcherEvent(failureOrNotes)),
@@ -32,11 +32,11 @@ class NoteWatcherBloc extends Bloc<NoteWatcherEvent, NoteWatcherState> {
       emit(
         failureOrNotes.fold(
           (error) => state.copyWith(
-            status: NoteWatcherStatus.loadFailure,
+            status: NoteWatcherStatus.failure,
             errorCode: error,
           ),
           (notes) => state.copyWith(
-            status: NoteWatcherStatus.loadSuccess,
+            status: NoteWatcherStatus.success,
             notes: notes,
           ),
         ),

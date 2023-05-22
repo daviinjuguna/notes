@@ -1,6 +1,5 @@
 // ignore_for_file: no_default_cases
 
-import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 
 import 'package:notes/notes/note_objects/note_body.dart';

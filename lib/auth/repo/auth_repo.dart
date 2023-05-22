@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -36,7 +38,8 @@ class AuthRepoImpl implements AuthRepo {
       return right(userCredential.user!);
     } on FirebaseAuthException catch (e) {
       return left(e.code);
-    } catch (e) {
+    } catch (e,s) {
+      log('Sign in error',error: e,stackTrace: s);
       return left('default-code');
     }
   }
@@ -54,7 +57,8 @@ class AuthRepoImpl implements AuthRepo {
       return right(userCredential.user!);
     } on FirebaseAuthException catch (e) {
       return left(e.code);
-    } catch (e) {
+    } catch (e,s) {
+      log('Sign up error',error: e,stackTrace: s);
       return left('default-code');
     }
   }
@@ -77,7 +81,8 @@ class AuthRepoImpl implements AuthRepo {
       return right(userCredential.user!);
     } on FirebaseAuthException catch (e) {
       return left(e.code);
-    } catch (e) {
+    } catch (e,s) {
+      log('Sign in with google error',error: e,stackTrace: s);
       return left('default-code');
     }
   }

@@ -7,7 +7,7 @@ class IconSwitchData {
     required this.icon,
   });
   final bool toggle;
-  final IconData icon;
+  final Widget icon;
 
   @override
   bool operator ==(Object other) {

@@ -39,7 +39,7 @@ class NoteWatcherState {
 
 enum NoteWatcherStatus {
   initial,
-  loadInProgress,
-  loadSuccess,
-  loadFailure,
+  loading,
+  success,
+  failure,
 }

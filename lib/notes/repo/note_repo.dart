@@ -5,7 +5,6 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
-import 'package:notes/notes/entity/note_item.dart';
 import 'package:notes/notes/notes.dart';
 import 'package:rxdart/rxdart.dart';
 
