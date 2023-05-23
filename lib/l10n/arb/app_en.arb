@@ -114,6 +114,22 @@
     "cancel": "Cancel",
     "@cancel": {
         "description": "Text shown in of the Cancel text"
+    },
+    "retry": "Retry",
+    "@retry": {
+        "description": "Text shown in of the Retry text"
+    },
+    "invalidNotes": "Notes is invalid",
+    "@invalidNotes": {
+        "description": "Text shown in of the Invalid Notes text"
+    },
+    "editNote": "Edit Note",
+    "@editNote": {
+        "description": "Text shown in of the Edit Note text"
+    },
+    "addNote": "Add Note",
+    "@addNote": {
+        "description": "Text shown in of the Add Note text"
     }
 
 

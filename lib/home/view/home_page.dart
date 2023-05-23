@@ -2,9 +2,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/home/component/logout_dialog.dart';
+import 'package:notes/home/widgets/error_note_card.dart';
 import 'package:notes/home/widgets/icon_check.dart';
 import 'package:notes/home/widgets/note_card.dart';
+import 'package:notes/l10n/l10n.dart';
 import 'package:notes/notes/notes.dart';
+import 'package:notes/routes/app_router.dart';
 import 'package:notes/splash/splash.dart';
 
 @RoutePage(name: 'HomeListRoute')
@@ -17,15 +20,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   SplashCubit get _splashCubit => context.read<SplashCubit>();
-  NoteWatcherBloc get _noteWatcherBloc=>context.read<NoteWatcherBloc>();
-
-
+  NoteWatcherBloc get _noteWatcherBloc => context.read<NoteWatcherBloc>();
+  AppLocalizations get _ln10 => AppLocalizations.of(context);
 
   @override
   void initState() {
     super.initState();
     _noteWatcherBloc.add(AllNoteWatcherEvent());
-
   }
 
   @override
@@ -53,6 +54,12 @@ class _HomePageState extends State<HomePage> {
         )
       ],
       child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            context.navigateTo(HomeDetailsRoute());
+          },
+          child: const Icon(Icons.add),
+        ),
         appBar: AppBar(
           title: const Text('Notes'),
           leading: IconButton(
@@ -89,12 +96,27 @@ class _HomePageState extends State<HomePage> {
                   itemCount: state.notes.length,
                   itemBuilder: (_, index) {
                     final note = state.notes.elementAt(index);
+                    if (note.failedValidation) return ErrorNoteCard(note: note);
                     return NoteCard(note: note);
                   },
                 );
               case NoteWatcherStatus.failure:
                 //error
-                return Container();
+                return FilledButton.tonalIcon(
+                  onPressed: () {
+                    _noteWatcherBloc.add(AllNoteWatcherEvent());
+                  },
+                  label: Text(_ln10.retry),
+                  icon: const Icon(Icons.refresh),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                      Theme.of(context).colorScheme.errorContainer,
+                    ),
+                    foregroundColor: MaterialStateProperty.all(
+                      Theme.of(context).colorScheme.onErrorContainer,
+                    ),
+                  ),
+                );
             }
           },
         ),

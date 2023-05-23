@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:notes/notes/notes.dart';
+import 'package:notes/routes/app_router.dart';
 import 'package:notes/todo/todo.dart';
 
 class NoteCard extends StatelessWidget {
@@ -12,7 +14,8 @@ class NoteCard extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       color: note.color.value,
       child: InkWell(
-        onTap: () {},
+        onTap: () =>
+            context.navigateTo(HomeDetailsRoute(noteId: note.id.value)),
         onLongPress: () {},
         child: Padding(
           padding: const EdgeInsets.all(8),

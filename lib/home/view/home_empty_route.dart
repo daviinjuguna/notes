@@ -14,10 +14,7 @@ class HomeEmptyRoute extends AutoRouter implements StatefulWidget {
             providers: [
               BlocProvider(create: (context) => getIt<NoteWatcherBloc>()),
               BlocProvider(create: (context) => getIt<NoteActorCubit>()),
-              BlocProvider(create: (create) => getIt<NoteFormCubit>())
             ],
             child: child,
           );
-
-
 }
