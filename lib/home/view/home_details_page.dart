@@ -1,4 +1,3 @@
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:collection/collection.dart';
 import 'package:dartz/dartz.dart' show optionOf;
@@ -6,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/components/components.dart';
 import 'package:notes/di/di.dart';
+import 'package:notes/home/widgets/add_todo_tile.dart';
 import 'package:notes/home/widgets/note_body.dart';
 import 'package:notes/home/widgets/note_color.dart';
 import 'package:notes/home/widgets/todo_list.dart';
@@ -118,7 +118,8 @@ class _HomeDetailsPageState extends State<HomeDetailsPage> {
                   slivers: [
                     SliverToBoxAdapter(child: NoteBody()),
                     SliverToBoxAdapter(child: NoteColor()),
-                    SliverToBoxAdapter(child: TodoList())
+                    SliverToBoxAdapter(child: TodoList()),
+                    SliverToBoxAdapter(child: AddTodoTile()),
                   ],
                 ),
               );

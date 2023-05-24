@@ -10,7 +10,7 @@ dependencies:
   auto_route: ^7.2.0
   bloc: ^8.1.2
   cloud_firestore: ^4.7.1
-  collection: ^1.17.1
+  collection: ^1.17.2
   dartz: ^0.10.1
   firebase_auth: ^4.6.1
   firebase_core: ^2.13.0
@@ -52,6 +52,7 @@ dev_dependencies:
   very_good_analysis: ^5.0.0+1
 
 dependency_overrides:
+  collection: ^1.17.2
   intl: ^0.18.1
 
 flutter:

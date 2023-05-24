@@ -130,7 +130,14 @@
     "addNote": "Add Note",
     "@addNote": {
         "description": "Text shown in of the Add Note text"
+    },
+    "addTodo": "Add Todo",
+    "@addTodo": {
+        "description": "Text shown in of the Add Todo text"
+    },
+    "note": "Note",
+    "@note": {
+        "description": "Text shown in of the Note text"
     }
-
 
 }

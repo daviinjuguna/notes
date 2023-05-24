@@ -48,9 +48,9 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i7.NoteRepo>(() => _i7.NoteRepoImpl(
           gh<_i3.FirebaseAuth>(),
           gh<_i5.FirebaseFirestore>(),
-        ));
+        ),);
     gh.factory<_i8.NoteWatcherBloc>(
-        () => _i8.NoteWatcherBloc(gh<_i7.NoteRepo>()));
+        () => _i8.NoteWatcherBloc(gh<_i7.NoteRepo>()),);
     gh.lazySingleton<_i9.SplashRepo>(
       () => _i9.SplashRepoImpl(gh<_i3.FirebaseAuth>()),
       registerFor: {_dev},
@@ -67,9 +67,9 @@ extension GetItInjectableX on _i1.GetIt {
       registerFor: {_dev},
     );
     gh.factory<_i12.NoteActorCubit>(
-        () => _i12.NoteActorCubit(gh<_i13.NoteRepo>()));
+        () => _i12.NoteActorCubit(gh<_i13.NoteRepo>()),);
     gh.factory<_i14.NoteFormCubit>(
-        () => _i14.NoteFormCubit(gh<_i13.NoteRepo>()));
+        () => _i14.NoteFormCubit(gh<_i13.NoteRepo>()),);
     gh.factory<_i15.SplashCubit>(
       () => _i15.SplashCubit(gh<_i9.SplashRepo>()),
       registerFor: {_dev},

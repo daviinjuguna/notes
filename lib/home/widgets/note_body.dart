@@ -37,12 +37,18 @@ class _NoteBodyState extends State<NoteBody> {
       listener: (context, state) {
         _controller.text = state.note.body.value;
       },
-      buildWhen: (previous, current) => previous.note.body != current.note.body,
+      buildWhen: (previous, current) =>
+          previous.note.body != current.note.body ||
+          previous.note.color != current.note.color,
       builder: (context, state) {
         return Padding(
           padding: const EdgeInsets.all(10),
           child: TextFormField(
             controller: _controller,
+            decoration: InputDecoration(
+              fillColor: state.note.color.value,
+              labelText: _ln10.note,
+            ),
             maxLength: 2000,
             maxLengthEnforcement: MaxLengthEnforcement.enforced,
             maxLines: null,

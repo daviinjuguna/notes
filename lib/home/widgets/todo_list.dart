@@ -31,7 +31,7 @@ class _TodoListState extends State<TodoList> {
     return MultiBlocListener(
       listeners: [
         BlocListener<NoteFormCubit, NoteFormState>(
-          listenWhen: (p, c) => p.isEditing != c.isEditing,
+          // listenWhen: (p, c) => p.isEditing != c.isEditing,
           listener: (context, state) {
             _todoItem = state.note.todos;
           },
@@ -59,26 +59,27 @@ class _TodoListState extends State<TodoList> {
             itemBuilder: (_, int index) {
               final todo = _todoItem.elementAt(index);
               return Container(
-                key: ValueKey(todo.id.value),
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.grey),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: ListTile(
+                  key: ValueKey(todo.id.value),
                   leading: Checkbox(
                     value: todo.done,
                     onChanged: (_) {},
                   ),
                   title: TextFormField(
                     initialValue: todo.title.value,
-                    enabled: false,
+                    enabled: true,
                     decoration: const InputDecoration(
                       hintText: 'Todo',
                       counterText: '',
                       border: InputBorder.none,
                     ),
                     maxLength: 100,
+                    onChanged: (value) {},
                     maxLengthEnforcement: MaxLengthEnforcement.enforced,
                   ),
                 ),

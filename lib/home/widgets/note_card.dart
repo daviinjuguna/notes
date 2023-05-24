@@ -11,6 +11,7 @@ class NoteCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       clipBehavior: Clip.antiAlias,
       color: note.color.value,
       child: InkWell(
@@ -60,6 +61,7 @@ class TodoDisplay extends StatelessWidget {
             Icons.check_box_outline_blank,
             color: Theme.of(context).disabledColor,
           ),
+        const SizedBox(width: 4),
         Text(todo.title.value),
       ],
     );
