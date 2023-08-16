@@ -39,7 +39,7 @@ dependencies:
 
 dev_dependencies:
   auto_route_generator: ^7.1.1
-  bloc_test: ^9.1.2
+  bloc_test: ^9.1.4
   build_runner: ^2.4.4
   dartz_test: ^0.1.1
   fake_cloud_firestore: ^2.4.1+1
